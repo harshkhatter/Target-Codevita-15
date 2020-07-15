@@ -1,0 +1,43 @@
+#https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the jumpingOnClouds function below.
+def jumpingOnClouds(c):
+    #initailize the jumps=0, i=0
+    jumps, i = 0, 0
+    
+    # iterate the loop till i < length of clouds
+    while i < len(c)-1:
+        
+        # if 2 cloud jumps
+        if i+2 < len(c) and c[i+2] != 1:
+            i += 1
+        #increment the jumps by 1
+        jumps += 1
+        i += 1
+    
+    # return the jumps 
+    return jumps
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    c = list(map(int, input().rstrip().split()))
+
+    result = jumpingOnClouds(c)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+#https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem
